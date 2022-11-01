@@ -1,23 +1,21 @@
-import { View,   } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { Text } from 'react-native-paper';
 import { getModels } from '../services/services';
 import { React, useEffect,useState } from 'react';
-
-
+import DetailedCardItems from './Detailed-Card-Items'
 
 const DetailsScreen = ({ route, navigation }) => {
 
   const { requestedCarName } = route.params;
-  const [ carModels, setCarModels] = useState([]);
+  const [ carsModelData, setCarModelsdata] = useState([]);
+
 
   useEffect (() => {
-   getModels({requestedCarName, setCarModels});
+   getModels({requestedCarName, setCarModelsdata});
   }, []);
 
   return(
-    <View>
-      <Text>{carModels}</Text>
-    </View>
+    <DetailedCardItems carModelsData={carsModelData}/>
   )
 }
 

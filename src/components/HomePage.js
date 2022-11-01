@@ -24,10 +24,10 @@ const HomePage = ({ navigation }) => {
 
   return(
     <ScrollView style={styles.container} >
-        <SearchBox 
-          cars={carNames}
-          setRequestedcar={setRequestedcar}
-          />
+      <SearchBox 
+        cars={carNames}
+        setRequestedcar={setRequestedcar}
+      />
       <View>
         {requestedCar.length != 0 ? 
           <CarDItems showList={requestedCar} navigation={navigation}/> :

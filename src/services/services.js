@@ -12,13 +12,12 @@ export const getNames = ({setCarNames}) => {
   });
 }
 
-export const getModels = ({requestedCarName, setCarModels}) => {
+export const getModels = ({requestedCarName, setCarModelsdata}) => {
   const baseUrl =`https://myfakeapi.com/api/cars/name/${requestedCarName}`;
 
   axios.get(baseUrl).then((response) => {
     const cars = response.data.Cars;
-    const allCarModels = new Set(cars.map(car => car.car_model));
-    const carModels = Array.from(allCarModels);
-    setCarModels(carModels);
+    console.log("cars--->", cars);
+    setCarModelsdata(cars);
   });
 }
