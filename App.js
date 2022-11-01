@@ -1,13 +1,15 @@
 import * as React from 'react';
-import { Text, View, StyleSheet } from 'react-native';
-import { Card } from 'react-native-paper';
-import CartItems from './src/components/Card-Items'
+import { View, StyleSheet } from 'react-native';
+import HomePage from './src/components/HomePage';
+import { CarProvider } from './src/contexts/CarContext';
 import { GetNames } from './src/services/services';
+
 export default App = () => {
   return (
     <View style={styles.container}>
-      <CartItems/>
-      <GetNames/>
+      <CarProvider>
+        <HomePage/>
+      </CarProvider>
     </View>
   );
 }
@@ -19,10 +21,4 @@ const styles = StyleSheet.create({
     backgroundColor: '#ecf0f1',
     padding: 10,
   },
-  // paragraph: {
-  //   margin: 24,
-  //   fontSize: 18,
-  //   fontWeight: 'bold',
-  //   textAlign: 'center',
-  // },
 });
