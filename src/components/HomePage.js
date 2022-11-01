@@ -19,7 +19,9 @@ const HomePage = () => {
   
   const onSearchText = (word) => {
     setQuery(word);
-    const filteredWord = carNames.filter(carName => carName === word);
+    const filteredWord = carNames.filter(
+      (carName) => carName.toLowerCase() === word.toLowerCase()
+    );
     setRequestedcar(filteredWord)
   }
 
