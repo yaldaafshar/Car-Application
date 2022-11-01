@@ -1,24 +1,20 @@
 import * as React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, ScrollView } from 'react-native';
 import HomePage from './src/components/HomePage';
 import { CarProvider } from './src/contexts/CarContext';
-import { GetNames } from './src/services/services';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import DetailsScreen from './src/components/DetailsScreen'
+const Stack = createNativeStackNavigator();
 
 export default App = () => {
   return (
-    <View style={styles.container}>
-      <CarProvider>
-        <HomePage/>
-      </CarProvider>
-    </View>
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="Home">
+          <Stack.Screen name="Home" component={HomePage} />
+          <Stack.Screen name="Details" component={DetailsScreen}/>
+        </Stack.Navigator>
+      </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    backgroundColor: '#ecf0f1',
-    padding: 10,
-  },
-});

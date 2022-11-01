@@ -1,50 +1,46 @@
-import { Searchbar } from 'react-native-paper';
-import { View, StyleSheet } from 'react-native';
-import { useContext, useState, useEffect } from 'react';
-import CartItems from './Card-Items';
-import { CarContext } from '../contexts/CarContext';
-import { GetNames } from '../services/services';
+import { View, ScrollView, StyleSheet } from 'react-native';
+import { useState, useEffect } from 'react';
+import CarDItems from './Card-Items';
+import { getNames } from '../services/services';
+import SearchBox from './SearchBox';
 
-const HomePage = () => {
+const HomePage = ({ navigation }) => {
 
-  const { setCarNames, carNames } = useContext(CarContext);
+  const [ carNames, setCarNames ] = useState([]);
   const [ query, setQuery ] =useState('');
   const [ requestedCar, setRequestedcar ] =useState('');
 
-
   useEffect (() => {
-   GetNames({setCarNames});
+   getNames({setCarNames});
   }, [])
 
-  
   const onSearchText = (word) => {
     setQuery(word);
-    const filteredWord = carNames.filter(
-      (carName) => carName.toLowerCase() === word.toLowerCase()
-    );
+    const filteredWord = carNames.filter(carName => 
+    carName.toLowerCase() === word.toLowerCase());
+    console.log("filtered word",filteredWord);
     setRequestedcar(filteredWord)
   }
 
-
   return(
-    <View>
-        <Searchbar 
-          placeholder="Search Here..."
-          onChangeText={onSearchText}
-          style={styles.searchBox}
-          value={query}
+    <ScrollView style={styles.container} >
+        <SearchBox 
+          cars={carNames}
+          setRequestedcar={setRequestedcar}
           />
       <View>
-        {requestedCar.length != 0 ? <CartItems showList={requestedCar}/> :  carNames? <CartItems showList={carNames}/> : null}
+        {requestedCar.length != 0 ? 
+          <CarDItems showList={requestedCar} navigation={navigation}/> :
+          carNames? <CarDItems showList={carNames} navigation={navigation}/> : null}
       </View>
-    </View>
+    </ScrollView>
 )}
 
-const styles = StyleSheet.create({
-  searchBox: {
-    marginBottom:15,
-  },
-})
 
+const styles = StyleSheet.create({
+  container: {
+    padding:10
+  },
+});
 
 export default HomePage;

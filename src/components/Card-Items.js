@@ -1,14 +1,11 @@
-import React from 'react';
-import { useContext } from 'react';
-import { GetNames } from '../services/services';
 import CardItem from './CardItem';
-import { CarContext } from '../contexts/CarContext';
 
-const CartItems = ({showList}) => {
-
+const CarDItems = ({showList, navigation}) => {
+  
+  console.log("serached2-->", showList);
    return showList.map((each, index) => {
-     return <CardItem each={each} index={index} />
+     return <CardItem each={each} index={index} navigation={navigation}  />
    })
 } 
 
-export default CartItems;
+export default CarDItems;
