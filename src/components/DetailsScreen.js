@@ -1,22 +1,21 @@
-import { View, StyleSheet } from 'react-native';
-import { Text } from 'react-native-paper';
-import { getModels } from '../services/services';
-import { React, useEffect,useState } from 'react';
-import DetailedCardItems from './Detailed-Card-Items'
+import { React, useEffect, useState } from "react";
+import { ScrollView } from "react-native";
+import { getModels } from "../services/services";
+import DetailedCardItems from "./Detailed-Card-Items";
 
 const DetailsScreen = ({ route, navigation }) => {
-
   const { requestedCarName } = route.params;
-  const [ carsModelData, setCarModelsdata] = useState([]);
+  const [carsModelData, setCarModelsdata] = useState([]);
 
-
-  useEffect (() => {
-   getModels({requestedCarName, setCarModelsdata});
+  useEffect(() => {
+    getModels({ requestedCarName, setCarModelsdata });
   }, []);
 
-  return(
-    <DetailedCardItems carModelsData={carsModelData}/>
-  )
-}
+  return (
+    <ScrollView>
+      <DetailedCardItems carsModelsData={carsModelData} />
+    </ScrollView>
+  );
+};
 
 export default DetailsScreen;
