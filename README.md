@@ -1,11 +1,13 @@
 # Car Application
 
 ### Description
-  - This application is designed to help potential users to browse, search and filter among the available cars listed in the application.
+  - This application is designed to give the potential users the ability to browse, search and filter among the available cars listed in the application.
 
 ### Assumptions 
-  - The first assumption is that users prefer to first browse and search for the cars' make and then see the details of the available models of the the chosen manufacturer.
-  - The second assumption is that for filtering based on years, users prefer to see available car models of a specific year instead of a time span.
+  - To do the project some assumptions were made as follows
+    - 1. Users prefer to first browse and search for the cars' make and then see the details of the available models of the the chosen manufacturer.
+    - 2. For filtering based on years, users prefer to see the available car models of a specific year instead of a time span.
+    - 3. For now, there are no specific images for the cars, same image can be used everywhere.
 
 ### Deployed app on Snack Expo
   - [Car Application](https://snack.expo.dev/@yalda.afshaar/cars)
@@ -19,3 +21,4 @@
     - react-dom@18.0.0
     - @expo/webpack-config^0.17.0
       - with "npx expo install" command
+
