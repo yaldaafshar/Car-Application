@@ -1,11 +1,21 @@
-# Sample Snack app
+# Car Application
 
-Open the `App.js` file to start writing some code. You can preview the changes directly on your phone or tablet by scanning the **QR code** or use the iOS or Android emulators. When you're done, click **Save** and share the link!
+### Description
+  - This application is designed to help potential users to browse, search and filter among the available cars listed in the application.
 
-When you're ready to see everything that Expo provides (or if you want to use your own editor) you can **Download** your project and use it with [expo-cli](https://docs.expo.io/get-started/installation).
+### Assumptions 
+  - The first assumption is that users prefer to first browse and search for the cars' make and then see the details of the available models of the the chosen manufacturer.
+  - The second assumption is that for filtering based on years, users prefer to see available car models of a specific year instead of a time span.
 
-All projects created in Snack are publicly available, so you can easily share the link to this project via link, or embed it on a web page with the `<>` button.
+### Deployed app on Snack Expo
+  - [Car Application](https://snack.expo.dev/@yalda.afshaar/cars)
 
-If you're having problems, you can tweet to us [@expo](https://twitter.com/expo) or ask in our [forums](https://forums.expo.io/c/snack).
-
-Snack is Open Source. You can find the code on the [GitHub repo](https://github.com/expo/snack).
+### Steps for Bringing the Application Locally
+  - 1. Install expo: yarn add expo
+  - 2. Start it with: npx expo start
+  - 3. Follow the propmts for how to open the application in Android or iOS
+  - 4. To open the application on web install the following libraries:
+    - react-native-web@~0.18.7
+    - react-dom@18.0.0
+    - @expo/webpack-config^0.17.0
+      - with "npx expo install" command
